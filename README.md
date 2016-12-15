@@ -13,6 +13,7 @@ $table = new tableMaker();    // initialize
 $table->setRows( $rows );     // set rows
 
 echo $table;
+// returns <table><tr><td>row1</td></tr><tr><td>row2</td></tr><tr><td>row3</td></tr></table>
 ```
 <table><tr><td>row1</td></tr><tr><td>row2</td></tr><tr><td>row3</td></tr></table>
 
@@ -28,6 +29,8 @@ $table->setHeader( $header ); // set header
 $table->setRows( $rows );     // set rows
 
 echo $table;
+
+// returns <table><thead><tr><td>head1</td></tr><tr><td>head2</td></tr><tr><td>head3</td></tr></thead><tbody><tr><td>row1</td></tr><tr><td>row2</td></tr><tr><td>row3</td></tr></tbody></table>
 ```
 
 <table><thead><tr><td>head1</td></tr><tr><td>head2</td></tr><tr><td>head3</td></tr></thead><tbody><tr><td>row1</td></tr><tr><td>row2</td></tr><tr><td>row3</td></tr></tbody></table>

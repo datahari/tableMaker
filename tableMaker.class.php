@@ -59,14 +59,13 @@ class tableMaker
     protected function parseColumns( $columns ) {
         $output = "";
 
-        if( is_array( $columns ) ) {
-            foreach( $columns as $column ) {
-                $column = htmlentities( $column );
-                $output .= $this->wrapInTableCell( $column );
-            }
-        } else {
-            $columns = htmlentities( $columns );
-            $output .= $this->wrapInTableCell( $columns );
+        if( ! is_array( $columns ) ) {
+        	$columns = [$columns];
+        }
+        
+        foreach( $columns as $column ) {
+            $column = htmlentities( $column );
+            $output .= $this->wrapInTableCell( $column );
         }
 
         return $output;

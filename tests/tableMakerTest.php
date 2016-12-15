@@ -97,4 +97,77 @@ class tableMakerTestTest extends PHPUnit_Framework_TestCase
         $this->assertEquals( $expected, $actual );
     }
 
+    public function test_it_can_add_a_header_to_the_top_of_table()
+    {
+
+        $header = [
+            ["head 1", "head 2", "head 3"]
+        ];
+
+        $rows = [
+            ["row 1", "row 2", "row 3"]
+        ];
+
+        $table = new tableMaker();
+        $table->setRows( $rows );
+        $table->setHeader( $header );
+
+        $actual = $table->render();
+
+        $expected = '<table>'.
+                        '<thead>'.
+	                        '<tr>'.
+	                            '<td>head 1</td>'.
+	                            '<td>head 2</td>'.
+	                            '<td>head 3</td>'.
+	                        '</tr>'.
+                        '</thead>'.
+                        '<tbody>'.
+	                        '<tr>'.
+	                            '<td>row 1</td>'.
+	                            '<td>row 2</td>'.
+	                            '<td>row 3</td>'.
+	                        '</tr>'.
+                        '</tbody>'.
+                    '</table>';
+
+        $this->assertEquals( $expected, $actual );
+    }
+
+    /*public function test_it_can_add_automatic_rowspan_to_header()
+    {
+
+        $header = [
+            ["head 1", "head 2"]
+        ];
+
+        $rows = [
+            ["row 1", "row 2", "row 3"]
+        ];
+
+        $table = new tableMaker();
+        $table->setRows( $rows );
+        $table->setHeader( $header );
+
+        $actual = $table->render();
+
+        $expected = '<table>'.
+                        '<thead>'.
+	                        '<tr>'.
+	                            '<td>head 1</td>'.
+	                            '<td colspan="2">head 2</td>'.
+	                        '</tr>'.
+                        '</thead>'.
+                        '<tbody>'.
+	                        '<tr>'.
+	                            '<td>row 1</td>'.
+	                            '<td>row 2</td>'.
+	                            '<td>row 3</td>'.
+	                        '</tr>'.
+                        '</tbody>'.
+                    '</table>';
+
+        $this->assertEquals( $expected, $actual );
+    }*/
+
 }

@@ -11,6 +11,11 @@ class tableMaker
     protected $rows   = [];
     protected $header = [];
 
+    public function __toString()
+    {
+    	return $this->render();
+    }
+
     public function setRows( $rows )
     {
         if( ! is_array( $rows ) ) {
@@ -62,7 +67,7 @@ class tableMaker
         if( ! is_array( $columns ) ) {
         	$columns = [$columns];
         }
-        
+
         foreach( $columns as $column ) {
             $column = htmlentities( $column );
             $output .= $this->wrapInTableCell( $column );
